@@ -26,6 +26,7 @@ if 'hr_database' not in st.session_state:
         {"Employee_ID": "EMP002", "Name": "Priya Sharma", "Age": 35, "Salary": 210000, "Department": "Sales", "Job_Role": "Manager", "Working_Hours": 8, "Experience_Years": 10, "Job_Level": 4, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 95, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "A+ve"},
         {"Employee_ID": "EMP003", "Name": "Durai", "Age": 24, "Salary": 26000, "Department": "Information Technology", "Job_Role": "Software Engineer", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 87, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "O+ve"},
         {"Employee_ID": "EMP004", "Name": "Ramesh Kumar", "Age": 23, "Salary": 45000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 12, "Experience_Years": 0, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 96, "Domain_Knowledge": "High", "Address": "Chennai", "Blood_Group": "B+ve"},
+        {"Employee_ID": "EMP005", "Name": "Varsha", "Age": 25, "Salary": 90000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 70, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "A+ve"},
         {"Employee_ID": "EMP006", "Name": "Divya Bharathi", "Age": 26, "Salary": 35000, "Department": "Information Technology", "Job_Role": "Cybersecurity Analyst", "Working_Hours": 9, "Experience_Years": 3, "Job_Level": 2, "Overtime": "Yes", "Skills_Master": "Inactive", "Attendance_Pct": 75, "Domain_Knowledge": "Low", "Address": "Chennai", "Blood_Group": "AB+ve"},
         {"Employee_ID": "EMP007", "Name": "Vikram Seth", "Age": 42, "Salary": 180000, "Department": "Information Technology", "Job_Role": "Network Engineer", "Working_Hours": 8, "Experience_Years": 15, "Job_Level": 5, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 98, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "O+ve"}
     ])
@@ -215,8 +216,19 @@ with tab3:
             # 🔥 EXPLAINABLE AI DISPLAY FIELD
             st.info(single_xai)
             
-            if "❌" in single_plan: st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
-            else: st.warning(f"📋 **AI Corporate Retention Order:** {single_plan}")
+            if "❌" in single_plan: 
+                st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
+                
+                # 💥 இங்க தான் காரணங்களை ஆட் பண்ணியிருக்கோம் bro!
+                st.markdown("##### 🔍 தக்க வைக்காமல் விடுவிப்பதற்கான சாத்தியமான காரணங்கள் (Potential Reasons):")
+                if p['Attendance_Pct'] < 90:
+                    st.write(f"1. 📉 **குறைந்த வருகைப்பதிவு (Low Attendance):** ஊழியரின் அட்டெண்டன்ஸ் 90%-க்கும் குறைவாக (**{p['Attendance_Pct']}%**) உள்ளது.")
+                if p['Skills_Master'] != "Active":
+                    st.write("2. ⚠️ **திறன் நிலைத்தன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.")
+                if p['Salary'] > 70000 and p['Experience_Years'] <= 2:
+                    st.write(f"3. 💰 **செயல்திறன் மதிப்பீடு (Performance vs Cost):** ஊழியரின் குறைந்த பணி அனுபவத்திற்கு (**{p['Experience_Years']} வருடம்**) வழங்கப்படும் அதிக சம்பளத்துடன் (**${p['Salary']:,}**) ஒப்பிடும்போது, தற்போதைய ஒட்டுமொத்த உற்பத்தித்திறன் நிறுவனத்தின் இலக்குகளை முழுமையாக ஈடுகட்டவில்லை.")
+            else: 
+                st.warning(f"📋 **AI Corporate Retention Order:** {single_plan}")
         else:
             st.warning("No profile registered under that ID boundary.")
 
