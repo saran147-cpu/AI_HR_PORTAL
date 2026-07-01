@@ -22,7 +22,7 @@ LANGUAGES = {
         "subtitle": "லைவ் அனலிட்டிக்ஸ், அசல் ML மெட்ரிக்ஸ் மற்றும் எக்ஸ்ப்ளெய்னபிள் AI கொண்ட எண்ட்-டு-எண்ட் மெஷின் லேர்னிங் சிஸ்டம்.",
         "reason_title": "### 🔍 தக்க வைக்காமல் விடுவிப்பதற்கான சாத்தியமான காரணங்கள்:",
         "reason_1": "1. 📉 **குறைந்த வருகைப்பதிவு (Low Attendance):** ஊழியரின் அட்டெண்டன்ஸ் 90%-க்கும் குறைவாக ({attendance}%) உள்ளது.",
-        "reason_2": "2. ⚠️ **திறன் நிலைത്തன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.",
+        "reason_2": "2. ⚠️ **திறன் நிலைத்தன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.",
         "reason_3": "3. 💰 **செயல்திறன் மதிப்பீடு (Performance vs Cost):** ஊழியரின் குறைந்த பணி அனுபவத்திற்கு ({exp} வருடம்) வழங்கப்படும் அதிக சம்பளத்துடன் (${salary:,}) ஒப்பிடும்போது, தற்போதைய அவுட்புட் நிறுவனத்தின் இலக்குகளை முழுமையாக ஈடுகட்டவில்லை."
     },
     "Malayalam": {
@@ -35,15 +35,15 @@ LANGUAGES = {
     },
     "Telugu": {
         "title": "🏢 AI HR పోర్టల్: ఇండస్ట్రీ-లెవెల్ డేటా సైన్స్ & రిటెన్షన్ ప్లాట్‌ఫారమ్",
-        "subtitle": "లైవ్ అనలిటిక్స్, రియల్ ML మెట్రిక్స్ మరియు ఎక్స్‌ప్లైనబుల్ AI ఫీచర్లతో ఎండ్-టు-ఎండ్ మెషీన్ లెర్నింగ్ సిస్టమ్.",
+        "subtitle": "లైవ్ | అనలిటిక్స్, రియల్ ML మెట్రిక్స్ మరియు ఎక్స్‌ప్లైనబుల్ AI ఫీచర్లతో ఎండ్-టు-ఎండ్ మెషీన్ లెర్నింగ్ సిస్టమ్.",
         "reason_title": "### 🔍 తొలగించడానికి గల సంభావ్య కారణాలు:",
         "reason_1": "1. 📉 **తక్కువ హాజరు (Low Attendance):** ఉద్యోగి హాజరు 90% కంటే తక్కువగా ({attendance}%) ఉంది.",
         "reason_2": "2. ⚠️ **నైపుణ్యాల నిష్క్రియత (Inactive Skills Master):** ఉద్యోగి యొక్క సాంకేతిక నైపుణ్యాల అర్హత నిష్క్రియంగా (Inactive) ఉంది.",
         "reason_3": "3. 💰 **పనితీరు వర్సెస్ ఖర్చు (Performance vs Cost):** తక్కువ పని అనుభవానికి ({exp} సంవత్సరాలు) ఇచ్చే అధిక జీతంతో (${salary:,}) పోల్చితే, ప్రస్తుత అవుట్‌పుట్ సంస్థ లక్ష్యాలను పూర్తిగా అందుకోలేదు."
     },
     "Hindi": {
-        "title": "🏢 AI HR पोर्टल: इंडस्ट्री-关 level डेटा साइंस और रिटेंशन प्लेटफॉर्म",
-        "subtitle": "लाइव एनालिटिक्स, वास्तविक ML मेट्रिक्स और एक्सप्लेनेबल AI की विशेषता वाला एक एंड-टू-एंड मशीन लर्निंग सिस्टम।",
+        "title": "🏢 AI HR पोर्टल: इंडस्ट्री-लेवल डेटा साइंस और रिटेंशन प्लेटफॉर्म",
+        "subtitle": "लाइव एनालिटिक्स, वास्तविक ML मेट्रिक्स और एक्सप्लेनेबल AI की विशेषता वाला एक एंड-टू-एंड मशीन लर्निंग系统।",
         "reason_title": "### 🔍 सेवा समाप्ति के संभावित कारण:",
         "reason_1": "1. 📉 **कम उपस्थिति (Low Attendance):** कर्मचारी की उपस्थिति 90% से कम ({attendance}%) है।",
         "reason_2": "2. ⚠️ **निष्क्रिय कौशल योग्यता (Inactive Skills Master):** कर्मचारी की आवश्यक तकनीकी कौशल स्थिति निष्क्रिय (Inactive) है।",
@@ -144,9 +144,8 @@ def predict_remaining_tenure(row, ai_status):
     if row['Working_Hours'] >= 11 and row['Attendance_Pct'] < 90: return "⚠️ Critical: Leave within 1 - 3 Months"
     return "⚠️ Moderate Risk: Leave within 3 - 6 Months"
 
-# AI LOSS-CONTROL & RETENTION PLAN OPTIMIZER (CRITICAL CRITERIA ADDED)
+# AI LOSS-CONTROL & RETENTION PLAN OPTIMIZER
 def get_ai_retention_plan(row):
-    # 💥 நிபந்தனை: Skill-ம் இல்லாமல், Attendance-ம் 80% கீழே இருந்தால் சிஸ்டம் தானாக பணிநீக்க உத்தரவு பிறப்பிக்கும்
     if row['Skills_Master'] != "Active" and row['Attendance_Pct'] < 80:
         return "❌ CRITICAL: No Skill & Low Attendance Detected. SYSTEM RECOMMENDATION: TERMINATE IMMEDIATELY."
     if row['Skills_Master'] != "Active" or row['Attendance_Pct'] < 90:
@@ -155,7 +154,7 @@ def get_ai_retention_plan(row):
         return "🛡️ Strategy: Remove Overtime & Set Max 8 Working Hours. Retain with standard benefits."
     return f"🛡️ Strategy: Provide High Salary Raise (+30% -> ${int(row['Salary'] * 1.3):,}). Safe investment due to excellent merits."
 
-# 4. Navigation Tabs (Added 5th Tab for Terminated Archives)
+# 4. Navigation Tabs
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "➕ Add / Update Employee", 
     "📊 Master Dashboard & Charts", 
@@ -274,11 +273,17 @@ with tab3:
             if "❌" in single_plan: 
                 st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
                 
-            
                 if "SYSTEM RECOMMENDATION: TERMINATE IMMEDIATELY." in single_plan:
                     st.warning("⚠️ **Management Action Required:** This employee triggers zero-merit threshold guidelines.")
                     if st.button(f"💥 Terminate {p['Name']} (Delete & Archive)", type="primary"):
-                        
                         terminated_employee = {
-                            "Employee_ID": p['Employee_ID'], "Name": p['Name'], "Age": p['Age'], 
-                            "Salary": p['Salary'], "Department": p['Department'], "Job_Role": p['Job_Role'],
+                            "Employee_ID": p['Employee_ID'], 
+                            "Name": p['Name'], 
+                            "Age": p['Age'], 
+                            "Salary": p['Salary'], 
+                            "Department": p['Department'], 
+                            "Job_Role": p['Job_Role'],
+                            "Address": p['Address'], 
+                            "Blood_Group": p['Blood_Group'], 
+                            "Phone": p.get('Phone', 'N/A'),
+                            "Reason": "No Skill & Low Attendance (<80%)"
