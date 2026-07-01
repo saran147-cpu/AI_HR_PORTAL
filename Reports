@@ -1,0 +1,20 @@
+============================================================
+PROJECT REPORT SUMMARY: EMPLOYEE ATTRITION AI PORTAL
+============================================================
+
+1. PROJECT TITLE:
+   AI-Driven HR ERP Platform for Attrition Prediction and Loss-Control Management.
+
+2. OBJECTIVE:
+   To build an interactive HR system that predicts employee attrition risk using Machine Learning (Random Forest) and automatically calculates cost-effective retention strategies based on employee merits (Attendance, Skills, Knowledge) to prevent company loss.
+
+3. TECH STACK:
+   - Language: Python
+   - Frontend/UI: Streamlit Framework
+   - Machine Learning: Scikit-Learn (Random Forest Classifier)
+   - Data Handling: Pandas, NumPy
+
+4. KEY LOGIC INCLUDED:
+   - Dynamic Salary Bracket up to $500,000.
+   - IT Department & custom tech job roles integration.
+   - Company Safeguard: Smart retention offers (Salary Hike, Low Working Hours, Accommodation) are ONLY provided if the employee maintains 90%+ Attendance and Active Skills.
