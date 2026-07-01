@@ -22,7 +22,7 @@ LANGUAGES = {
         "subtitle": "லைவ் அனலிட்டிக்ஸ், அசல் ML மெட்ரிக்ஸ் மற்றும் எக்ஸ்ப்ளெய்னபிள் AI கொண்ட எண்ட்-டு-எண்ட் மெஷின் லேர்னிங் சிஸ்டம்.",
         "reason_title": "### 🔍 தக்க வைக்காமல் விடுவிப்பதற்கான சாத்தியமான காரணங்கள்:",
         "reason_1": "1. 📉 **குறைந்த வருகைப்பதிவு (Low Attendance):** ஊழியரின் அட்டெண்டன்ஸ் 90%-க்கும் குறைவாக ({attendance}%) உள்ளது.",
-        "reason_2": "2. ⚠️ **திறன் நிலைத்தன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.",
+        "reason_2": "2. ⚠️ **திறன் நிலைത്തன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.",
         "reason_3": "3. 💰 **செயல்திறன் மதிப்பீடு (Performance vs Cost):** ஊழியரின் குறைந்த பணி அனுபவத்திற்கு ({exp} வருடம்) வழங்கப்படும் அதிக சம்பளத்துடன் (${salary:,}) ஒப்பிடும்போது, தற்போதைய அவுட்புட் நிறுவனத்தின் இலக்குகளை முழுமையாக ஈடுகட்டவில்லை."
     },
     "Malayalam": {
@@ -31,7 +31,7 @@ LANGUAGES = {
         "reason_title": "### 🔍 ഒഴിവാക്കുന്നതിനുള്ള സാധ്യമായ കാരണങ്ങൾ:",
         "reason_1": "1. 📉 **കുറഞ്ഞ ഹാജർനില (Low Attendance):** ജീവനക്കാരൻ്റെ ഹാജർനില 90%-ൽ താഴെയാണ് ({attendance}%).",
         "reason_2": "2. ⚠️ **നൈപുണ്യ കുറവ് (Inactive Skills Master):** ജീവനക്കാരൻ്റെ സാങ്കേതിക നൈപുണ്യ യോഗ്യത നിഷ്ക്രിയമാണ് (Inactive).",
-        "reason_3": "3. 💰 **പ്രകടനവും ചെലവും (Performance vs Cost):** കുറഞ്ഞ പ്രവൃത്തിപരിചയത്തിന് ({exp} വർഷം) നൽകുന്ന ഉയർന്ന ശമ്പളവുമായി (${salary:,}) താരതമ്യം ചെയ്യുമ്പോൾ, നിലവിലെ ഔട്ട്പുട്ട് കമ്പനിയുടെ ലക്ഷ്യങ്ങൾ പൂർണ്ണമായി നിറവേറ്റുന്നില്ല."
+        "reason_3": "3. 💰 **പ്രകടനവും ചെലവും (Performance vs Cost):** കുറഞ്ഞ പ്രവൃത്തിപരിചയത്തിന് ({exp} വർഷം) നൽകുന്ന ഉയർന്ന ശമ്പളവുമായി (${salary:,}) താരതമ്യം ചെയ്യുമ്പോൾ, നിലവിലെ ഔട്ട്പുട്ട് കമ്പനിയുടെ ലക്ഷ്യങ്ങൾ പൂർണ്ണമായി വ്യക്തമാക്കുന്നില്ല."
     },
     "Telugu": {
         "title": "🏢 AI HR పోర్టల్: ఇండస్ట్రీ-లెవెల్ డేటా సైన్స్ & రిటెన్షన్ ప్లాట్‌ఫారమ్",
@@ -42,7 +42,7 @@ LANGUAGES = {
         "reason_3": "3. 💰 **పనితీరు వర్సెస్ ఖర్చు (Performance vs Cost):** తక్కువ పని అనుభవానికి ({exp} సంవత్సరాలు) ఇచ్చే అధిక జీతంతో (${salary:,}) పోల్చితే, ప్రస్తుత అవుట్‌పుట్ సంస్థ లక్ష్యాలను పూర్తిగా అందుకోలేదు."
     },
     "Hindi": {
-        "title": "🏢 AI HR पोर्टल: इंडस्ट्री-लेवल डेटा साइंस और रिटेंशन प्लेटफॉर्म",
+        "title": "🏢 AI HR पोर्टल: इंडस्ट्री-关 level डेटा साइंस और रिटेंशन प्लेटफॉर्म",
         "subtitle": "लाइव एनालिटिक्स, वास्तविक ML मेट्रिक्स और एक्सप्लेनेबल AI की विशेषता वाला एक एंड-टू-एंड मशीन लर्निंग सिस्टम।",
         "reason_title": "### 🔍 सेवा समाप्ति के संभावित कारण:",
         "reason_1": "1. 📉 **कम उपस्थिति (Low Attendance):** कर्मचारी की उपस्थिति 90% से कम ({attendance}%) है।",
@@ -67,16 +67,21 @@ if not os.path.exists(model_path):
 with open(model_path, 'rb') as f:
     model = pickle.load(f)
 
-# 3. Initialize Session State Database (Comprehensive Mock Data for Instant Graphs)
+# 3. Initialize Session State Databases (Main HR Database & Terminated History)
 if 'hr_database' not in st.session_state:
     st.session_state.hr_database = pd.DataFrame([
-        {"Employee_ID": "EMP001", "Name": "Arun Kumar", "Age": 28, "Salary": 85000, "Department": "Information Technology", "Job_Role": "Software Engineer", "Working_Hours": 10, "Experience_Years": 4, "Job_Level": 2, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 92, "Domain_Knowledge": "High", "Address": "Chennai", "Blood_Group": "O+ve"},
-        {"Employee_ID": "EMP002", "Name": "Priya Sharma", "Age": 35, "Salary": 210000, "Department": "Sales", "Job_Role": "Manager", "Working_Hours": 8, "Experience_Years": 10, "Job_Level": 4, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 95, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "A+ve"},
-        {"Employee_ID": "EMP003", "Name": "Durai", "Age": 24, "Salary": 26000, "Department": "Information Technology", "Job_Role": "Software Engineer", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 87, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "O+ve"},
-        {"Employee_ID": "EMP004", "Name": "Ramesh Kumar", "Age": 23, "Salary": 45000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 12, "Experience_Years": 0, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 96, "Domain_Knowledge": "High", "Address": "Chennai", "Blood_Group": "B+ve"},
-        {"Employee_ID": "EMP005", "Name": "Varsha", "Age": 25, "Salary": 90000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 70, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "A+ve"},
-        {"Employee_ID": "EMP006", "Name": "Divya Bharathi", "Age": 26, "Salary": 35000, "Department": "Information Technology", "Job_Role": "Cybersecurity Analyst", "Working_Hours": 9, "Experience_Years": 3, "Job_Level": 2, "Overtime": "Yes", "Skills_Master": "Inactive", "Attendance_Pct": 75, "Domain_Knowledge": "Low", "Address": "Chennai", "Blood_Group": "AB+ve"},
-        {"Employee_ID": "EMP007", "Name": "Vikram Seth", "Age": 42, "Salary": 180000, "Department": "Information Technology", "Job_Role": "Network Engineer", "Working_Hours": 8, "Experience_Years": 15, "Job_Level": 5, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 98, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "O+ve"}
+        {"Employee_ID": "EMP001", "Name": "Arun Kumar", "Age": 28, "Salary": 85000, "Department": "Information Technology", "Job_Role": "Software Engineer", "Working_Hours": 10, "Experience_Years": 4, "Job_Level": 2, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 92, "Domain_Knowledge": "High", "Address": "Chennai", "Blood_Group": "O+ve", "Phone": "+91 98765 43210"},
+        {"Employee_ID": "EMP002", "Name": "Priya Sharma", "Age": 35, "Salary": 210000, "Department": "Sales", "Job_Role": "Manager", "Working_Hours": 8, "Experience_Years": 10, "Job_Level": 4, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 95, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "A+ve", "Phone": "+91 87654 32109"},
+        {"Employee_ID": "EMP003", "Name": "Durai", "Age": 24, "Salary": 26000, "Department": "Information Technology", "Job_Role": "Software Engineer", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 87, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "O+ve", "Phone": "+91 76543 21098"},
+        {"Employee_ID": "EMP004", "Name": "Ramesh Kumar", "Age": 23, "Salary": 45000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 12, "Experience_Years": 0, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Active", "Attendance_Pct": 96, "Domain_Knowledge": "High", "Address": "Chennai", "Blood_Group": "B+ve", "Phone": "+91 65432 10987"},
+        {"Employee_ID": "EMP005", "Name": "Varsha", "Age": 25, "Salary": 90000, "Department": "Information Technology", "Job_Role": "Data Scientist", "Working_Hours": 10, "Experience_Years": 1, "Job_Level": 1, "Overtime": "Yes", "Skills_Master": "Inactive", "Attendance_Pct": 70, "Domain_Knowledge": "Medium", "Address": "Chennai", "Blood_Group": "A+ve", "Phone": "+91 54321 09876"},
+        {"Employee_ID": "EMP006", "Name": "Divya Bharathi", "Age": 26, "Salary": 35000, "Department": "Information Technology", "Job_Role": "Cybersecurity Analyst", "Working_Hours": 9, "Experience_Years": 3, "Job_Level": 2, "Overtime": "Yes", "Skills_Master": "Inactive", "Attendance_Pct": 75, "Domain_Knowledge": "Low", "Address": "Chennai", "Blood_Group": "AB+ve", "Phone": "+91 43210 98765"},
+        {"Employee_ID": "EMP007", "Name": "Vikram Seth", "Age": 42, "Salary": 180000, "Department": "Information Technology", "Job_Role": "Network Engineer", "Working_Hours": 8, "Experience_Years": 15, "Job_Level": 5, "Overtime": "No", "Skills_Master": "Active", "Attendance_Pct": 98, "Domain_Knowledge": "High", "Address": "Coimbatore", "Blood_Group": "O+ve", "Phone": "+91 32109 87654"}
+    ])
+
+if 'terminated_database' not in st.session_state:
+    st.session_state.terminated_database = pd.DataFrame(columns=[
+        "Employee_ID", "Name", "Age", "Salary", "Department", "Job_Role", "Address", "Blood_Group", "Phone", "Reason"
     ])
 
 # Helper function to compute AI prediction for a batch
@@ -101,7 +106,6 @@ def predict_ai_status(df_input):
                 single_input_df[col] = 2
                 
         overtime_encoded = 1 if row['Overtime'] == "Yes" else 0
-        
         raw_salary = row['Salary']
         if raw_salary <= 20000: ai_salary = raw_salary
         elif raw_salary <= 50000: ai_salary = int(raw_salary / 12)
@@ -140,16 +144,25 @@ def predict_remaining_tenure(row, ai_status):
     if row['Working_Hours'] >= 11 and row['Attendance_Pct'] < 90: return "⚠️ Critical: Leave within 1 - 3 Months"
     return "⚠️ Moderate Risk: Leave within 3 - 6 Months"
 
-# AI LOSS-CONTROL & RETENTION PLAN OPTIMIZER
+# AI LOSS-CONTROL & RETENTION PLAN OPTIMIZER (CRITICAL CRITERIA ADDED)
 def get_ai_retention_plan(row):
+    # 💥 நிபந்தனை: Skill-ம் இல்லாமல், Attendance-ம் 80% கீழே இருந்தால் சிஸ்டம் தானாக பணிநீக்க உத்தரவு பிறப்பிக்கும்
+    if row['Skills_Master'] != "Active" and row['Attendance_Pct'] < 80:
+        return "❌ CRITICAL: No Skill & Low Attendance Detected. SYSTEM RECOMMENDATION: TERMINATE IMMEDIATELY."
     if row['Skills_Master'] != "Active" or row['Attendance_Pct'] < 90:
         return "❌ No Counter-Offer (Merits Not Met). Proceed with Termination/Exit."
     if row['Overtime'] == "Yes" and row['Working_Hours'] > 8:
         return "🛡️ Strategy: Remove Overtime & Set Max 8 Working Hours. Retain with standard benefits."
     return f"🛡️ Strategy: Provide High Salary Raise (+30% -> ${int(row['Salary'] * 1.3):,}). Safe investment due to excellent merits."
 
-# 4. Navigation Tabs
-tab1, tab2, tab3, tab4 = st.tabs(["➕ Add / Update Employee", "📊 Master Dashboard & Charts", "🔍 Profile Finder & Explainable AI", "🔬 Model Evaluation Metrics"])
+# 4. Navigation Tabs (Added 5th Tab for Terminated Archives)
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "➕ Add / Update Employee", 
+    "📊 Master Dashboard & Charts", 
+    "🔍 Profile Finder & Explainable AI", 
+    "🔬 Model Evaluation Metrics",
+    "🗑️ Terminated Employees History"
+])
 
 # ==================== TAB 1: EMPLOYEE REGISTRATION ====================
 with tab1:
@@ -157,11 +170,11 @@ with tab1:
     existing_ids = st.session_state.hr_database['Employee_ID'].tolist()
     select_id_mode = st.selectbox("Select Action", ["Create New Profile", "Update Existing Profile"])
     
-    target_id, default_name, default_age, default_salary, default_hours, default_overtime, default_attendance, default_exp = "EMP003", "Durai", 24, 26000, 10, "Yes", 87, 1
+    target_id, default_name, default_age, default_salary, default_hours, default_overtime, default_attendance, default_exp, default_phone = "EMP003", "Durai", 24, 26000, 10, "Yes", 87, 1, "+91 99999 88888"
     if select_id_mode == "Update Existing Profile" and existing_ids:
         chosen_id = st.selectbox("Choose Employee ID to Adjust", existing_ids)
         emp_match = st.session_state.hr_database[st.session_state.hr_database['Employee_ID'] == chosen_id].iloc[0]
-        target_id, default_name, default_age, default_salary, default_hours, default_overtime, default_attendance, default_exp = emp_match['Employee_ID'], emp_match['Name'], int(emp_match['Age']), int(emp_match['Salary']), int(emp_match['Working_Hours']), emp_match['Overtime'], int(emp_match['Attendance_Pct']), int(emp_match['Experience_Years'])
+        target_id, default_name, default_age, default_salary, default_hours, default_overtime, default_attendance, default_exp, default_phone = emp_match['Employee_ID'], emp_match['Name'], int(emp_match['Age']), int(emp_match['Salary']), int(emp_match['Working_Hours']), emp_match['Overtime'], int(emp_match['Attendance_Pct']), int(emp_match['Experience_Years']), emp_match.get('Phone', "+91 99999 88888")
 
     with st.form("reg_form"):
         col1, col2, col3 = st.columns(3)
@@ -169,7 +182,7 @@ with tab1:
             emp_id = st.text_input("Employee ID", value=target_id, disabled=(select_id_mode == "Update Existing Profile"))
             emp_name = st.text_input("Full Name", value=default_name)
             age = st.slider("Age", 18, 60, default_age)
-            blood_group = st.selectbox("Blood Group", ["O+ve", "A+ve", "B+ve"])
+            blood_group = st.selectbox("Blood Group", ["O+ve", "A+ve", "B+ve", "AB+ve"])
             address = st.text_area("Address", value="Chennai")
         with col2:
             department = st.selectbox("Department", ["Information Technology", "Sales", "Research & Development"])
@@ -183,12 +196,13 @@ with tab1:
             skills_master = st.selectbox("Skills Mastery Status", ["Active", "Inactive"])
             attendance_pct = st.slider("Attendance (%)", 50, 100, default_attendance)
             domain_knowledge = st.selectbox("Domain Knowledge", ["High", "Medium", "Low"])
+            phone = st.text_input("Phone Number", value=default_phone)
             
         submit = st.form_submit_button("💾 Save & Update Live Database", type="primary")
         if submit:
             if emp_id in st.session_state.hr_database['Employee_ID'].values:
                 st.session_state.hr_database = st.session_state.hr_database[st.session_state.hr_database['Employee_ID'] != emp_id]
-            new_emp = {"Employee_ID": emp_id, "Name": emp_name, "Age": age, "Salary": salary, "Department": department, "Job_Role": job_role, "Working_Hours": working_hours, "Experience_Years": experience, "Job_Level": job_level, "Overtime": overtime, "Address": address, "Blood_Group": blood_group, "Skills_Master": skills_master, "Attendance_Pct": attendance_pct, "Domain_Knowledge": domain_knowledge}
+            new_emp = {"Employee_ID": emp_id, "Name": emp_name, "Age": age, "Salary": salary, "Department": department, "Job_Role": job_role, "Working_Hours": working_hours, "Experience_Years": experience, "Job_Level": job_level, "Overtime": overtime, "Address": address, "Blood_Group": blood_group, "Skills_Master": skills_master, "Attendance_Pct": attendance_pct, "Domain_Knowledge": domain_knowledge, "Phone": phone}
             st.session_state.hr_database = pd.concat([st.session_state.hr_database, pd.DataFrame([new_emp])], ignore_index=True)
             st.success(f"Successfully updated records for {emp_name}!")
 
@@ -200,19 +214,15 @@ with tab2:
     if not db.empty:
         db['AI Model Prediction'] = predict_ai_status(db)
         
-        # 📊 LIVE GRAPHS AND VISUALIZATIONS SECTION
         col_g1, col_g2, col_g3 = st.columns(3)
-        
         with col_g1:
             st.markdown("##### 📊 Attrition Risk by Department")
             dept_chart = db.groupby(['Department', 'AI Model Prediction']).size().unstack(fill_value=0)
             st.bar_chart(dept_chart)
-            
         with col_g2:
             st.markdown("##### 📈 Age Distribution Curve")
             age_chart = db.groupby('Age').size()
             st.line_chart(age_chart)
-            
         with col_g3:
             st.markdown("##### 🥧 Overall Attrition Risk Share")
             risk_counts = db['AI Model Prediction'].value_counts()
@@ -220,7 +230,6 @@ with tab2:
             
         st.markdown("---")
         
-        # Action calculations for table display
         tenure, plans = [], []
         for idx, row in db.iterrows():
             tenure.append(predict_remaining_tenure(row, row['AI Model Prediction']))
@@ -230,14 +239,13 @@ with tab2:
         
         st.dataframe(db[['Employee_ID', 'Name', 'Salary', 'AI Model Prediction', 'Predicted Remaining Tenure', 'AI Optimized Action Plan']], use_container_width=True)
         
-        # CSV Download Infrastructure
         csv_data = db.to_csv(index=False).encode('utf-8')
         st.download_button(label="📥 Download Complete HR Audit Sheet (CSV File)", data=csv_data, file_name="HR_AI_Audit_Report.csv", mime="text/csv", type="primary")
-        
+
 # ==================== TAB 3: PROFILE FINDER & EXPLAINABLE AI ====================
 with tab3:
     st.subheader("🔍 Single Profile Search & Explainable AI Engine")
-    search_id = st.text_input("Enter Unique Employee ID (e.g., EMP003)")
+    search_id = st.text_input("Enter Unique Employee ID (e.g., EMP005)")
     
     if search_id:
         db = st.session_state.hr_database
@@ -256,40 +264,21 @@ with tab3:
                 st.write(f"💵 **Salary:** ${p['Salary']:,} | **Working Hours:** {p['Working_Hours']} hrs (Overtime: {p['Overtime']})")
                 st.write(f"🏢 **Department:** {p['Department']} | **Role:** {p['Job_Role']} | **Experience:** {p['Experience_Years']} Yrs")
             with col_p2:
-                st.write(f"🎯 **Skills Status:** {p['Skills_Master']} | **Attendance:** {p['Attendance_Pct']}%")
+                st.write(f"🎯 **Skills Status:** {p['Skills_Master']} | **Attendance:** {p['Attendance_Pct']}% | 📞 **Phone:** {p.get('Phone', 'N/A')}")
                 
             st.write("---")
             st.write(f"🤖 **Live AI Risk Assessment:** {single_ai} | **Expected Tenure:** {single_tenure}")
             
-            # 🔥 EXPLAINABLE AI DISPLAY FIELD
             st.info(single_xai)
             
             if "❌" in single_plan: 
                 st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
                 
-                st.markdown(text["reason_title"])
-                if p['Attendance_Pct'] < 90:
-                    st.write(text["reason_1"].format(attendance=p['Attendance_Pct']))
-                if p['Skills_Master'] != "Active":
-                    st.write(text["reason_2"])
-                if p['Salary'] > 70000 and p['Experience_Years'] <= 2:
-                    st.write(text["reason_3"].format(exp=p['Experience_Years'], salary=p['Salary']))
-            else: 
-                st.warning(f"📋 **AI Corporate Retention Order:** {single_plan}")
-        else:
-            st.warning("No profile registered under that ID boundary.")
-
-# ==================== TAB 4: MODEL EVALUATION METRICS ====================
-with tab4:
-    st.subheader("🔬 Data Science Model Performance & Validation Analytics")
-    st.write("Validation reports generated using historical testing split from the original IBM HR Attrition Core Dataset.")
-    
-    col_m1, col_m2, col_m3, col_m4 = st.columns(4)
-    col_m1.metric("Model Classification Accuracy", "86.42 %", "+1.2% Gain")
-    col_m2.metric("Precision (Retention Safety)", "84.10 %")
-    col_m3.metric("Recall (Sensitivity Matrix)", "81.56 %")
-    col_m4.metric("F1-Score Balance Quotient", "82.81 %")
-    
-    st.markdown("#### 🟥 Confusion Matrix (Random Forest Validation Split)")
-    
-    # Render Interactive Evaluation Matrix Table
+            
+                if "SYSTEM RECOMMENDATION: TERMINATE IMMEDIATELY." in single_plan:
+                    st.warning("⚠️ **Management Action Required:** This employee triggers zero-merit threshold guidelines.")
+                    if st.button(f"💥 Terminate {p['Name']} (Delete & Archive)", type="primary"):
+                        
+                        terminated_employee = {
+                            "Employee_ID": p['Employee_ID'], "Name": p['Name'], "Age": p['Age'], 
+                            "Salary": p['Salary'], "Department": p['Department'], "Job_Role": p['Job_Role'],
