@@ -7,8 +7,58 @@ import os
 # 1. Page Configuration
 st.set_page_config(page_title="AI HR Retention & Enterprise Audit Platform", layout="wide")
 
-st.title("🏢 AI HR Portal: Industry-Level Data Science & Retention Platform")
-st.write("An End-to-End Machine Learning System featuring Live Analytics, Real ML Metrics, and Explainable AI.")
+# ==================== LANGUAGE TRANSLATION DICTIONARY ====================
+# டிராப்-டவுன் ஆப்ஷனுக்காக எல்லா மொழிகளிலும் காரணங்களை இங்கே செட் செய்துள்ளோம் bro.
+LANGUAGES = {
+    "English": {
+        "title": "🏢 AI HR Portal: Industry-Level Data Science & Retention Platform",
+        "subtitle": "An End-to-End Machine Learning System featuring Live Analytics, Real ML Metrics, and Explainable AI.",
+        "reason_title": "### 🔍 Potential Reasons for Proceeding with Termination:",
+        "reason_1": "1. 📉 **Low Attendance:** Employee attendance is below 90% ({attendance}%).",
+        "reason_2": "2. ⚠️ **Inactive Skills Mastery:** The employee's essential technical skill qualification status is Inactive.",
+        "reason_3": "3. 💰 **Performance vs Cost:** Compared to the high salary (${salary:,}) provided for low work experience ({exp} Yrs), the current output does not fully meet organization targets."
+    },
+    "Tamil": {
+        "title": "🏢 AI HR போர்டல்: இண்டஸ்ட்ரி-லெவல் டேட்டா சயின்ஸ் & ரிடென்ஷன் பிளாட்பார்ம்",
+        "subtitle": "லைவ் அனலிட்டிக்ஸ், அசல் ML மெட்ரிக்ஸ் மற்றும் எக்ஸ்ப்ளெய்னபிள் AI கொண்ட எண்ட்-டு-எண்ட் மெஷின் லேர்னிங் சிஸ்டம்.",
+        "reason_title": "### 🔍 தக்க வைக்காமல் விடுவிப்பதற்கான சாத்தியமான காரணங்கள்:",
+        "reason_1": "1. 📉 **குறைந்த வருகைப்பதிவு (Low Attendance):** ஊழியரின் அட்டெண்டன்ஸ் 90%-க்கும் குறைவாக ({attendance}%) உள்ளது.",
+        "reason_2": "2. ⚠️ **திறன் நிலைத்தன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.",
+        "reason_3": "3. 💰 **செயல்திறன் மதிப்பீடு (Performance vs Cost):** ஊழியரின் குறைந்த பணி அனுபவத்திற்கு ({exp} வருடம்) வழங்கப்படும் அதிக சம்பளத்துடன் (${salary:,}) ஒப்பிடும்போது, தற்போதைய அவுட்புட் நிறுவனத்தின் இலக்குகளை முழுமையாக ஈடுகட்டவில்லை."
+    },
+    "Malayalam": {
+        "title": "🏢 AI HR പോർട്ടൽ: ഇൻഡസ്ട്രി-ലെവൽ ഡാറ്റ സയൻസ് & റിറ്റെൻഷൻ പ്ലാറ്റ്‌ഫോം",
+        "subtitle": "ലൈവ് അനലിറ്റിക്സ്, യഥാർത്ഥ ML മെട്രിക്സ്, എക്സ്പ്ലെയ്നബിൾ AI എന്നിവ അടങ്ങിയ ഒരു എൻഡ്-ടു-എൻഡ് മെഷീൻ ലേണിംഗ് സിസ്റ്റം.",
+        "reason_title": "### 🔍 ഒഴിവാക്കുന്നതിനുള്ള സാധ്യമായ കാരണങ്ങൾ:",
+        "reason_1": "1. 📉 **കുറഞ്ഞ ഹാജർനില (Low Attendance):** ജീവനക്കാരൻ്റെ ഹാജർനില 90%-ൽ താഴെയാണ് ({attendance}%).",
+        "reason_2": "2. ⚠️ **നൈപുണ്യ കുറവ് (Inactive Skills Master):** ജീവനക്കാരൻ്റെ സാങ്കേതിക നൈപുണ്യ യോഗ്യത നിഷ്ക്രിയമാണ് (Inactive).",
+        "reason_3": "3. 💰 **പ്രകടനവും ചെലവും (Performance vs Cost):** കുറഞ്ഞ പ്രവൃത്തിപരിചയത്തിന് ({exp} വർഷം) നൽകുന്ന ഉയർന്ന ശമ്പളവുമായി (${salary:,}) താരതമ്യം ചെയ്യുമ്പോൾ, നിലവിലെ ഔട്ട്പുട്ട് കമ്പനിയുടെ ലക്ഷ്യങ്ങൾ പൂർണ്ണമായി നിറവേറ്റുന്നില്ല."
+    },
+    "Telugu": {
+        "title": "🏢 AI HR పోర్టల్: ఇండస్ట్రీ-లెవెల్ డేటా సైన్స్ & రిటెన్షన్ ప్లాట్‌ఫారమ్",
+        "subtitle": "లైవ్ అనలిటిక్స్, రియల్ ML మెట్రిక్స్ మరియు ఎక్స్‌ప్లైనబుల్ AI ఫీచర్లతో ఎండ్-టు-ఎండ్ మెషీన్ లెర్నింగ్ సిస్టమ్.",
+        "reason_title": "### 🔍 తొలగించడానికి గల సంభావ్య కారణాలు:",
+        "reason_1": "1. 📉 **తక్కువ హాజరు (Low Attendance):** ఉద్యోగి హాజరు 90% కంటే తక్కువగా ({attendance}%) ఉంది.",
+        "reason_2": "2. ⚠️ **నైపుణ్యాల నిష్క్రియత (Inactive Skills Master):** ఉద్యోగి యొక్క సాంకేతిక నైపుణ్యాల అర్హత నిష్క్రియంగా (Inactive) ఉంది.",
+        "reason_3": "3. 💰 **పనితీరు వర్సెస్ ఖర్చు (Performance vs Cost):** తక్కువ పని అనుభవానికి ({exp} సంవత్సరాలు) ఇచ్చే అధిక జీతంతో (${salary:,}) పోల్చితే, ప్రస్తుత అవుట్‌పుట్ సంస్థ లక్ష్యాలను పూర్తిగా అందుకోలేదు."
+    },
+    "Hindi": {
+        "title": "🏢 AI HR पोर्टल: इंडस्ट्री-लेवल डेटा साइंस और रिटेंशन प्लेटफॉर्म",
+        "subtitle": "लाइव एनालिटिक्स, वास्तविक ML मेट्रिक्स और एक्सप्लेनेबल AI की विशेषता वाला एक एंड-टू-एंड मशीन लर्निंग सिस्टम।",
+        "reason_title": "### 🔍 सेवा समाप्ति के संभावित कारण:",
+        "reason_1": "1. 📉 **कम उपस्थिति (Low Attendance):** कर्मचारी की उपस्थिति 90% से कम ({attendance}%) है।",
+        "reason_2": "2. ⚠️ **निष्क्रिय कौशल योग्यता (Inactive Skills Master):** कर्मचारी की आवश्यक तकनीकी कौशल स्थिति निष्क्रिय (Inactive) है।",
+        "reason_3": "3. 💰 **प्रदर्शन बनाम लागत (Performance vs Cost):** कम कार्य अनुभव ({exp} वर्ष) के लिए दिए जा रहे उच्च वेतन (${salary:,}) की तुलना में, वर्तमान आउटपुट कंपनी के लक्ष्यों को पूरी तरह से पूरा नहीं करता है।"
+    }
+}
+
+# 🌐 SIDEBAR LANGUAGE SELECTOR (டீஃபాల్ட்டாக English இருக்கும் bro)
+st.sidebar.markdown("### 🌐 Language Settings")
+selected_lang = st.sidebar.selectbox("Choose Language / ഭാഷ / భాష / भाषा", list(LANGUAGES.keys()), index=0)
+text = LANGUAGES[selected_lang]
+
+st.title(text["title"])
+st.write(text["subtitle"])
 
 # 2. Paths pointing to Trained Machine Learning Model
 model_path = 'Notebooks/Models/attrition_rf_model.pkl'
@@ -168,7 +218,7 @@ with tab2:
         with col_g3:
             st.markdown("##### 🥧 Overall Attrition Risk Share")
             risk_counts = db['AI Model Prediction'].value_counts()
-            st.bar_chart(risk_counts) # Safe native fall-back container for pie scale rendering
+            st.bar_chart(risk_counts)
             
         st.markdown("---")
         
@@ -219,14 +269,14 @@ with tab3:
             if "❌" in single_plan: 
                 st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
                 
-                # 💥 இங்க தான் காரணங்களை ஆட் பண்ணியிருக்கோம் bro!
-                st.markdown("##### 🔍 தக்க வைக்காமல் விடுவிப்பதற்கான சாத்தியமான காரணங்கள் (Potential Reasons):")
+                # 💥 தேர்ந்தெடுக்கப்பட்ட மொழியில் காரணங்கள் மாறும் பகுதி!
+                st.markdown(text["reason_title"])
                 if p['Attendance_Pct'] < 90:
-                    st.write(f"1. 📉 **குறைந்த வருகைப்பதிவு (Low Attendance):** ஊழியரின் அட்டெண்டன்ஸ் 90%-க்கும் குறைவாக (**{p['Attendance_Pct']}%**) உள்ளது.")
+                    st.write(text["reason_1"].format(attendance=p['Attendance_Pct']))
                 if p['Skills_Master'] != "Active":
-                    st.write("2. ⚠️ **திறன் நிலைத்தன்மை குறைபாடு (Inactive Skills Master):** ஊழியரின் அத்தியாவசிய தொழில்நுட்ப திறன் தகுதி சுணக்கமாக (Inactive) உள்ளது.")
+                    st.write(text["reason_2"])
                 if p['Salary'] > 70000 and p['Experience_Years'] <= 2:
-                    st.write(f"3. 💰 **செயல்திறன் மதிப்பீடு (Performance vs Cost):** ஊழியரின் குறைந்த பணி அனுபவத்திற்கு (**{p['Experience_Years']} வருடம்**) வழங்கப்படும் அதிக சம்பளத்துடன் (**${p['Salary']:,}**) ஒப்பிடும்போது, தற்போதைய ஒட்டுமொத்த உற்பத்தித்திறன் நிறுவனத்தின் இலக்குகளை முழுமையாக ஈடுகட்டவில்லை.")
+                    st.write(text["reason_3"].format(exp=p['Experience_Years'], salary=p['Salary']))
             else: 
                 st.warning(f"📋 **AI Corporate Retention Order:** {single_plan}")
         else:
@@ -246,10 +296,3 @@ with tab4:
     st.markdown("#### 🟥 Confusion Matrix (Random Forest Validation Split)")
     
     # Render Interactive Evaluation Matrix Table
-    matrix_data = pd.DataFrame(
-        [[242, 18], [24, 86]], 
-        columns=["Predicted Retained (0)", "Predicted Attrition (1)"],
-        index=["Actual Retained (0)", "Actual Attrition (1)"]
-    )
-    st.table(matrix_data)
-    st.caption("Confusion matrix generated utilizing Random Forest Ensemble estimator over 370 active cross-validation records.")
