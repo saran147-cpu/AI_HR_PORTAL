@@ -8,7 +8,6 @@ import os
 st.set_page_config(page_title="AI HR Retention & Enterprise Audit Platform", layout="wide")
 
 # ==================== LANGUAGE TRANSLATION DICTIONARY ====================
-# டிராப்-டவுன் ஆப்ஷனுக்காக எல்லா மொழிகளிலும் காரணங்களை இங்கே செட் செய்துள்ளோம் bro.
 LANGUAGES = {
     "English": {
         "title": "🏢 AI HR Portal: Industry-Level Data Science & Retention Platform",
@@ -52,7 +51,6 @@ LANGUAGES = {
     }
 }
 
-# 🌐 SIDEBAR LANGUAGE SELECTOR (டீஃபాల్ட்டாக English இருக்கும் bro)
 st.sidebar.markdown("### 🌐 Language Settings")
 selected_lang = st.sidebar.selectbox("Choose Language / ഭാഷ / భాష / भाषा", list(LANGUAGES.keys()), index=0)
 text = LANGUAGES[selected_lang]
@@ -269,7 +267,6 @@ with tab3:
             if "❌" in single_plan: 
                 st.error(f"📋 **AI Corporate Retention Order:** {single_plan}")
                 
-                # 💥 தேர்ந்தெடுக்கப்பட்ட மொழியில் காரணங்கள் மாறும் பகுதி!
                 st.markdown(text["reason_title"])
                 if p['Attendance_Pct'] < 90:
                     st.write(text["reason_1"].format(attendance=p['Attendance_Pct']))
